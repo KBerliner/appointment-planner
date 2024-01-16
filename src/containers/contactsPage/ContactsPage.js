@@ -37,7 +37,7 @@ export const ContactsPage = (props) => {
         <h2>Add Contact</h2> 
         <ContactForm 
         name={name} 
-        setName={(name) => setName(name)}
+        setName={(name) => {if (props.contacts.find(contact => contact.name === name) == undefined) {setName(name)}}}
         phone={phoneNumber}
         setPhone={(phone) => setPhoneNumber(phone)}
         email={email}

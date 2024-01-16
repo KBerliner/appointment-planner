@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { TileList } from "../../components/tileList/TileList";
+import App from "../../App";
 
 export const AppointmentsPage = ({ appointments, contacts, handleNewAppointment }) => {
   /*
@@ -31,10 +32,23 @@ export const AppointmentsPage = ({ appointments, contacts, handleNewAppointment 
     <div>
       <section>
         <h2>Add Appointment</h2>
+        <AppointmentForm 
+        contacts={contacts}
+        title={name}
+        setTitle={(name) => setName(name)}
+        contact={contact}
+        setContact={(contact) => setContact(contact)}
+        date={date}
+        setDate={(date) => setDate(date)}
+        time={time}
+        setTime={(time) => setTime(time)}
+        handleSubmit={handleSubmit}
+        />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
+        <TileList contacts={contacts} appointments={appointments} />
       </section>
     </div>
   );

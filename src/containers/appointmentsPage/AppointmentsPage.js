@@ -48,7 +48,7 @@ export const AppointmentsPage = ({ appointments, contacts, handleNewAppointment 
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList contacts={contacts} appointments={appointments} />
+        <TileList appointments={appointments} contacts={contacts} />
       </section>
     </div>
   );

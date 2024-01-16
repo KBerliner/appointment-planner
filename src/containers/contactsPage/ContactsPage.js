@@ -31,13 +31,19 @@ export const ContactsPage = (props) => {
   contacts array variable in props
   */
 
+  useEffect(() => {
+    if (props.contacts.find(contact => contact.name === name) !== undefined) {
+      alert('This name is already in the system!');
+    }
+  }, [name])
+
   return (
     <div>
       <section>
         <h2>Add Contact</h2> 
         <ContactForm 
         name={name} 
-        setName={(name) => {if (props.contacts.find(contact => contact.name === name) == undefined) {setName(name)}}}
+        setName={(name) => setName(name)}
         phone={phoneNumber}
         setPhone={(phone) => setPhoneNumber(phone)}
         email={email}

@@ -54,7 +54,7 @@ function App() {
     <Route path="/" element={ <Root/> }>
       <Route index element={ <Navigate to={ROUTES.CONTACTS} replace/> }/>
       <Route path={ROUTES.CONTACTS} element={ <ContactsPage handleNewContact={(name, phoneNumber, email) => makeNewContact(name, phoneNumber, email)} contacts={contacts} /> }/>
-      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage handleNewAppointment={(name, contact, date, time) => makeNewAppointment(name, contact, date, time)} /> }/>
+      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage handleNewAppointment={(name, contact, date, time) => makeNewAppointment(name, contact, date, time)} appointments={appointments} contacts={contacts} /> }/>
     </Route>
   ));
   

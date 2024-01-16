@@ -19,6 +19,11 @@ export const ContactsPage = (props) => {
     Add contact info and clear data
     if the contact name is not a duplicate
     */
+   
+    // Clear form on successful submission
+    setName('');
+    setPhoneNumber('');
+    setEmail('');
   };
 
   /*

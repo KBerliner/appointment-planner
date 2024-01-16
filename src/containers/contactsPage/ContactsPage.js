@@ -10,6 +10,7 @@ export const ContactsPage = (props) => {
   */
 
   const [name, setName] = useState('');
+  const [duplicateName, setDuplicateName] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
 
@@ -19,6 +20,9 @@ export const ContactsPage = (props) => {
     Add contact info and clear data
     if the contact name is not a duplicate
     */
+
+    // Submit the Contact information
+    !duplicateName ? props.handleNewContact(name, phoneNumber, email) : alert('The name is a duplicate. Therefor the contact cannot be submitted!');
    
     // Clear form on successful submission
     setName('');
@@ -34,8 +38,13 @@ export const ContactsPage = (props) => {
   useEffect(() => {
     if (props.contacts.find(contact => contact.name === name) !== undefined) {
       alert('This name is already in the system!');
+      setDuplicateName(true);
+    } else {
+      if (duplicateName) {
+        setDuplicateName(false);
+      }
     }
-  }, [name])
+  }, [name]);
 
   return (
     <div>
